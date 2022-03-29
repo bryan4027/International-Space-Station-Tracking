@@ -62,15 +62,14 @@ def return_specific_epoch(epoch):
     """
     logging.info("Looking for requested epoch")
     epoch_data = positions['ndm']['oem']['body']['segment']['data']['stateVector']
-    epoch_length = len(epoch_data)
-    epoch_list = []
-     
-    neededindex = epoch_data.index(input_epoch)
-    needed_data = ['X', 'Y', 'Z', 'X_DOT', 'Y_DOT', 'Z_DOT']
-    output = {}
-    for stuff in range(needed_data):
-        output[stuff] = epoch_data[found_index][stuff]
-    return output
+    output_list = []
+    for pos in range(len(epoch_data)):
+        current_epoch = epoch_data[pos]['EPOCH']
+        if epoch == current_epoch:
+            specific_epoch_data = epoch_data[pos]
+            output_list.append(specific_epoch_data)
+    
+    return json.dumps(output_list, indent=2)
                  
 @app.route('/countries', methods=['GET'])
 def return_all_countries():
