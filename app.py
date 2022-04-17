@@ -23,6 +23,10 @@ def load_data_into_file():
 
 @app.route('/help', methods=['GET'])
 def return_instructions():
+    '''
+    This Route returns all of the available commands and instructions on
+    how to use them.
+    '''
     logging.info("Instructions on requesting data printed below.")
     output = "/help - (GET) - outputs instructions/help information."
     output = output + "\n/load_data - (POST) - loads data into memory. "
@@ -40,7 +44,9 @@ def return_instructions():
 @app.route('/epoch', methods=['GET'])
 def return_epoch():
     """
-    Hello
+    This route grabs all of the epochs and makes it a list.
+
+    Return: it returns the list of epochs
     """
     output = "\n"
     logging.info("Looking for all of the Epoch Positions\n")
@@ -56,9 +62,13 @@ def return_epoch():
     return epoch_list
 
 @app.route('/epoch/<epoch>', methods=['GET'])
-def return_specific_epoch(epoch):
+def return_specific_epoch(epoch: str):
     """
-    Ite
+    Input: This route reads in an input indicating which epoch's information is requested
+
+    The route loops through the list of epochs and returns the data for the requested epoch. 
+
+    Output: The route outputs the requested epoch's information in the form of a JSON
     """
     logging.info("Looking for requested epoch")
     epoch_data = positions['ndm']['oem']['body']['segment']['data']['stateVector']
@@ -74,7 +84,9 @@ def return_specific_epoch(epoch):
 @app.route('/countries', methods=['GET'])
 def return_all_countries():
     """
-    Ite
+    This route loops through all of the data and returns the countries that are included with data in a list. 
+
+    The route outputs the list of countries in the data
     """
     logging.info("Looking for all countries")
     global sighting_data
@@ -91,9 +103,13 @@ def return_all_countries():
         
     return country_list  
 @app.route('/countries/<country>', methods=['GET'])
-def return_specific_country(country):
+def return_specific_country(country: str):
     """
-    Ite
+    Input: this route inputs a string for a requested country from the outputed list from the /countries route
+    
+    the route iterates through the data and compiles all the data that goes through the requested country and puts it into a JSON formatted list
+
+    output: the route outputs JSON formatted data for all the positons above the requested country.
     """
     logging.info("Looking for requested country")
     sighting_data = sightings['visible_passes']['visible_pass']
@@ -110,9 +126,13 @@ def return_specific_country(country):
 
         
 @app.route('/countries/<country>/regions', methods=['GET'])
-def return_regions(country):
+def return_regions(country: str):
     """
-    Ite
+    input: the route requests a specific country so that it can get the data from that coutnry.
+
+    the route iterates through the outputted json formatted data from the previous route to find all data positioned over a specific region.
+
+    output: it returns a string list of all of the regions
     """
     logging.info("looking for list of all regions")
     regions_list = ""
@@ -131,9 +151,13 @@ def return_regions(country):
     return regions_list
 
 @app.route('/countries/<country>/regions/<region>', methods=['GET'])
-def return_a_region(country, region):
+def return_a_region(country: str, region: str):
     """
-    Ite
+    Input: the route requests an input for a country and region to specify which country and region you want to search for data
+
+    the route iterates through the data and compiles all of the data from the requested region into a JSON format.
+
+    output: this outputs all of the positions that are within the requested country and requested region.
     """
     logging.info("Currently looking for data within requested region")
     output_list = []
@@ -152,9 +176,13 @@ def return_a_region(country, region):
     return json.dumps(region_data, indent=2)
 
 @app.route('/countries/<country>/regions/<region>/cities', methods=['GET'])
-def return_cities(country, region):
+def return_cities(country: str, region: str):
     """
-    Ite
+    Input: the route requests an input for a country and region to specify which country and region you want to search for data
+
+    the route iterates through the data for the requested country and region to compile a list of all the cities in the data. The list is inputted into a string.
+
+    Output: The route outputs the string, a list of all the cities in the requested data.
     """
     logging.info("Currently looking for list of cities")
     output_list = []
@@ -178,9 +206,13 @@ def return_cities(country, region):
     return city_list
 @app.route('/countries/<country>/regions/<region>/cities/<city>', methods=['GET'\
 ])
-def return_a_city(country, region,city):
+def return_a_city(country: str, region: str,city: str):
     """
-    Ite
+    input: the route requests a country, region, and city where the user wants to grab the data from. They are all strings.
+
+    The route iterates through the list of data that pertains to the requested city and compiles it onto a JSON formatted list.
+
+    output: The route outputs a JSON formatted compilation of data within a city.
     """
     logging.info("Currently looking for specific city")
     output_list = []
