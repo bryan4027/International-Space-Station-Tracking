@@ -1,4 +1,4 @@
-# This folder belongs to Bryan Acosta's nternational-Space-Station-Tracking Midterm Project.
+# This folder belongs to Bryan Acosta's International-Space-Station-Tracking Midterm Project.
 Eid ba25389. TACC id: ba25389.
 
 # Tracking the International Space Station
