@@ -509,6 +509,7 @@ export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run -p 5001	
 ``` 
+	
 6. Observe Output. If the application was successfully loaded then the following will be outputed.
 ```python:
  * Serving Flask app 'app.py' (lazy loading)
