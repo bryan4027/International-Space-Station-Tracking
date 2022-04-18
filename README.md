@@ -528,7 +528,6 @@ flask run -p 5001
 /epoch/<epoch> - (GET) - Returns information for requested epoch.
 /countries - (GET) - Returns information for all countries in data.
 /countries/<country> - (GET) - Returns all information for requested country.
-
 /countries/<country>/regions - (GET) - Returns all requested information for requested country.
 /countries/<country>/regions/<region> - (GET) - Returns all information for requested region.
 /countries/<country>/regions/<region>/cities - (GET) - Returns all information for all cities.
@@ -600,5 +599,3 @@ Successfully tagged bryan4027/iss_tracking10:1.3
 docker run --name "iss_tracking10" -it -p 5001:5000 bryan4027/iss_tracking10:1.3
 ```
 </details>	
-
-7. Observe the results - if it runs and does not display anything, then the code is correct. Otherwise, there is an error somewhere in your code, whether in function, inputs, variables, or more, depending on the output text.
