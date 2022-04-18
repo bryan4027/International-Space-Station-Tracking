@@ -503,7 +503,9 @@ Python
   },
 ```
 </details>
+	
 5.  Start the Flask application so it is accessible from the web. Type the following into the terminal one by one. For the last program, replace the 5001 with your respective port.
+	
 ```python: 
 export FLASK_APP=app.py
 export FLASK_ENV=development
@@ -522,6 +524,7 @@ flask run -p 5001
 ```
     
 7. In order to test the flask, open another terminal window and log back into your SSH server. Load the application using `curl localhost:5001/load_data -X POST`. That command will load all the data into the correct files. Then, you can see a list of instructions on how to use the application using `curl localhost:5001/help`. The output should look like this:
+	
 ```python:
 /help - (GET) - outputs instructions/help information.
 /load_data - (POST) - loads data into memory.
@@ -535,8 +538,10 @@ flask run -p 5001
 /countries/<country>/regions/<region>/city - (GET) - Returns all information for requested city.	
 	
 ```	
+	
 8. You can now interact with and use the Flask application to observe the data. You can use `curl localhost:5001/countries/Belgium/regions/None/cities/Wervik` to see the data of the sightings observed in the city of Wervik in Belgium. Test out other data by starting with `curl localhost:5001/countries` and following the instructions from there.
 9. You can now test the program is running correctly by running `pytest emacs pytest_app.py` and the output should look like this if it ran correctly:
+	
 ```python:
 ============================ test session starts ============================
 platform linux -- Python 3.6.8, pytest-7.0.1, pluggy-1.0.0
