@@ -14,7 +14,7 @@ def load_data_into_file():
     global sightings
     with open('ISS.OEM_J2K_EPH.xml','r') as epochs:
         epochsdata = xmltodict.parse(epochs.read())
-    with open('XMLsightingData_citiesINT01.xml', 'r') as sightningdata:
+    with open('XMLsightingData_citiesINT01.xml', 'r') as sightingdata:
         sightings = xmltodict.parse(sightingdata.read())
 
         return 'Data loading is complete.\n'
