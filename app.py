@@ -10,12 +10,12 @@ app = Flask(__name__)
 def load_data_into_file():
     
     logging.info('Files have been loaded into the memory.\n')
-    global positions 
+    global epochsdata
     global sightings
-    with open('positions.xml','r') as pos:
-        positions = xmltodict.parse(pos.read())
-    with open('cities.xml', 'r') as cities:
-        sightings = xmltodict.parse(cities.read())
+    with open('ISS.OEM_J2K_EPH.xml','r') as epochs:
+        epochsdata = xmltodict.parse(epochs.read())
+    with open('XMLsightingData_citiesINT01.xml', 'r') as sightnings:
+        sightings = xmltodict.parse(sightings.read())
 
         return 'Data loading is complete.\n'
 
@@ -54,7 +54,7 @@ def return_epoch():
     global epoch_list #also output
     global epoch_data
     epoch_list = ""
-    epoch_data = positions['ndm']['oem']['body']['segment']['data']['stateVector']
+    epoch_data = epochsdata['ndm']['oem']['body']['segment']['data']['stateVector']
     epoch_length = len(epoch_data)
     for i in range(epoch_length):
         epoch_list = epoch_list + epoch_data[i]['EPOCH'] + '\n'
@@ -71,7 +71,7 @@ def return_specific_epoch(epoch: str):
     Output: The route outputs the requested epoch's information in the form of a JSON
     """
     logging.info("Looking for requested epoch")
-    epoch_data = positions['ndm']['oem']['body']['segment']['data']['stateVector']
+    epoch_data = epochsdata['ndm']['oem']['body']['segment']['data']['stateVector']
     output_list = []
     for pos in range(len(epoch_data)):
         current_epoch = epoch_data[pos]['EPOCH']
