@@ -338,7 +338,7 @@ ENV PATH "/code:$PATH"
 </details>
     
 # Instructions for Program: 
-1. Download `positions.xml` by running the following into the terminal:
+1. Download `ISS.OEM_J2K_EPH.xml` by running the following into the terminal:
 ```python:
 wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS.OEM_J2K_EPH.xml
 ```
