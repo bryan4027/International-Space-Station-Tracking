@@ -599,4 +599,9 @@ Successfully built d939ea72f19d
 Successfully tagged bryan4027/iss_tracking10:1.3
 docker run --name "iss_tracking10" -it -p 5001:5000 bryan4027/iss_tracking10:1.3
 ```
-</details>	
+</details>
+	
+# Citations
+Goodwin, S. (n.d.). ISS_COORDS_2022-02-13. NASA. https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS.OEM_J2K_EPH.xml Retrieved March 17, 2022, from https://data.nasa.gov/Space-Science/ISS_COORDS_2022-02-13/r6u8-bhhq
+
+Goodwin, S. (n.d.). XMLsightingData_citiesINT01. NASA. Retrieved April 17, 2022, from https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightings/XMLsightingData_citiesINT01.xml	
